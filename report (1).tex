@@ -1,0 +1,307 @@
+% =====================================================================
+% PROJECT REPORT TEMPLATE
+% Follows the prescribed content flow, chapter structure, and formatting
+% standards: A4, margins (T1/B1/R1/L1.5 in), Times New Roman, 12pt body,
+% 16pt/14pt/12pt bold headings, roman->arabic page numbering, centered
+% bold captions, 1.5 line spacing, justified paragraphs.
+% =====================================================================
+\documentclass[12pt,a4paper]{report}
+
+% ---------- Fonts (Times New Roman look) ----------
+\usepackage{times}            % Times-like font for pdflatex
+% If you compile with xelatex/lualatex instead, comment the line above
+% and uncomment the two lines below for the *actual* Times New Roman:
+% \usepackage{fontspec}
+% \setmainfont{Times New Roman}
+
+% ---------- Page geometry: A4, T1 B1 R1 L1.5 (inches) ----------
+\usepackage[a4paper,top=1in,bottom=1in,right=1in,left=1.5in]{geometry}
+
+% ---------- Line spacing & justification ----------
+\usepackage{setspace}
+\onehalfspacing                % 1.5 line spacing for all paragraphs
+
+% ---------- Headings: chapter 16pt, section 14pt, subsection 12pt, all bold ----------
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]{\bfseries\fontsize{16}{19}\selectfont}{\thechapter.}{10pt}{}
+\titleformat{\section}{\bfseries\fontsize{14}{17}\selectfont}{\thesection.}{8pt}{}
+\titleformat{\subsection}{\bfseries\fontsize{12}{15}\selectfont}{\thesubsection.}{6pt}{}
+
+% ---------- Figures, tables, captions (centered, bold, 12pt) ----------
+\usepackage{graphicx}
+\usepackage{caption}
+\captionsetup[figure]{labelfont=bf,font=bf,justification=centering,position=bottom}
+\captionsetup[table]{labelfont=bf,font=bf,justification=centering,position=above}
+\usepackage{float}
+
+% ---------- Bibliography: IEEE style ----------
+\usepackage{cite}             % sorts/compresses multiple \cite{} numbers, e.g. [1]-[3]
+% This template uses BibTeX with the IEEEtran.bst style, which auto-formats
+% every entry from references.bib in correct IEEE numeric format and
+% auto-numbers/reorders citations for you. IEEEtran.bst ships with any full
+% TeX Live install and is preinstalled on Overleaf -- if pdflatex reports
+% "IEEEtran.bst not found", install it once via your TeX package manager
+% (TeX Live: tlmgr install ieeetran | MiKTeX: install via MiKTeX Console).
+
+% ---------- Misc ----------
+\usepackage[toc]{appendix}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+\usepackage{enumitem}
+
+\begin{document}
+
+% =====================================================================
+% FRONT MATTER -- roman numeral page numbers (i, ii, iii, ...)
+% =====================================================================
+\pagenumbering{roman}
+
+% ---------- 1. Cover / Title Page ----------
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    {\Large\bfseries Crimson College Of Technology\par}
+    \vspace{0.3cm}
+    {\large Faculty / Department Name\par}
+    \vspace{2cm}
+    {\Large\bfseries To-Do Application\par}
+    \vspace{2cm}
+    {\large A project report submitted in partial fulfillment of the requirements
+    for the degree of\par}
+    \vspace{0.3cm}
+    {\large\bfseries Bachelor of Science in Computer Science\par}
+    \vspace{2cm}
+    {\large Submitted by:\par}
+    {\large\bfseries Your Name (Symbol Number)\par}
+    \vspace{1.5cm}
+    {\large Under the supervision of:\par}
+    {\large\bfseries Supervisor's Name\par}
+    \vfill
+    {\large Month, Year\par}
+\end{titlepage}
+
+% ---------- 2. Certificate Page ----------
+\chapter*{Supervisor's Recommendation}
+\addcontentsline{toc}{chapter}{Supervisor's Recommendation}
+This is to certify that the project report entitled \textbf{``Project Title''}
+submitted by \textbf{Your Name} has been carried out under my supervision. This
+report is recommended for final evaluation.
+
+\vspace{2cm}
+\noindent
+\begin{tabular}{@{}l}
+    \hrulefill \\
+    Supervisor's Name \\
+    Designation \\
+    Date
+\end{tabular}
+
+\clearpage
+\chapter*{Approval Letter}
+\addcontentsline{toc}{chapter}{Approval Letter}
+This project report has been examined and approved by the following examiners.
+
+\vspace{2cm}
+\noindent
+\begin{tabular}{@{}ll}
+    \hrulefill & \hrulefill \\
+    Internal Examiner & External Examiner \\
+\end{tabular}
+
+% ---------- 3. Abstract Page ----------
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+Write a concise (200-300 word) summary of the problem, method, and result here.
+
+% ---------- 4. Acknowledgements ----------
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+I would like to express my sincere gratitude to my supervisor, \textbf{Supervisor's
+Name}, for the continuous guidance and support throughout this project.
+
+% ---------- 5. Table of Contents ----------
+\tableofcontents
+\clearpage
+
+% ---------- 6. Abbreviations ----------
+\chapter*{Abbreviations}
+\addcontentsline{toc}{chapter}{Abbreviations}
+\begin{tabular}{@{}ll}
+    \textbf{UI}   & User Interface \\
+    \textbf{DB}   & Database \\
+    \textbf{API}  & Application Programming Interface \\
+\end{tabular}
+
+% ---------- 7. List of Figures ----------
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\clearpage
+
+% ---------- 8. List of Tables ----------
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+\clearpage
+
+% =====================================================================
+% MAIN REPORT -- arabic page numbers restart from 1 at Chapter 1
+% =====================================================================
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\chapter{Introduction}
+
+\section{Background of the Study}
+
+\subsection{What is Lorem Ipsum?}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=4cm]{logo.png}
+    \caption{College of Technology Logo}
+    \label{fig:logo}
+\end{figure}
+
+\textbf{Lorem Ipsum} is simply dummy text of the printing and typesetting industry \cite{ref1}. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum \cite{ref2}.
+
+\subsection{Why do we use it?}
+
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy \cite{ref3}. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+\subsection{Where does it come from?}
+
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC \cite{ref4}. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+\subsection{Where can I get some?}
+
+There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+
+\section{Statement of the Problem}
+Describe the problem being solved.
+
+\section{Objectives of the Study}
+\begin{itemize}[noitemsep]
+    \item Objective one.
+    \item Objective two.
+\end{itemize}
+
+\section{Scope of the Study}
+Describe scope and boundaries.
+
+\section{Limitations of the Study}
+Describe known limitations.
+
+\chapter{Review of Literature}
+
+\section{Description of Fundamental Theories, General Concepts and Terminologies Related to the Project}
+Write theoretical background here.
+
+\section{Review of the Similar Projects and Theories}
+Discuss related/similar systems here.
+
+\chapter{System Analysis and Design}
+
+\section{System Analysis}
+
+\subsection{Requirement Analysis}
+\paragraph{Functional Requirements}
+\begin{itemize}[noitemsep]
+    \item Requirement one.
+\end{itemize}
+\paragraph{Non-Functional Requirements}
+\begin{itemize}[noitemsep]
+    \item Requirement one.
+\end{itemize}
+
+\subsection{Feasibility Analysis}
+\paragraph{Technical} Discuss technical feasibility.
+\paragraph{Operational} Discuss operational feasibility.
+\paragraph{Financial} Discuss financial feasibility.
+\paragraph{Schedule} Discuss schedule feasibility.
+
+\subsection{Data Modeling}
+Insert ER diagrams / data models here.
+
+\subsection{Process Modeling}
+Insert DFDs / flowcharts here.
+
+\section{System Design}
+
+\subsection{Interface Design (UI Interface / Interface Structure Diagrams)}
+% Example figure placement:
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{ui_mockup.png}
+%     \caption{Login Screen Interface}
+%     \label{fig:login-ui}
+% \end{figure}
+Insert interface/wireframe diagrams here.
+
+\chapter{Implementation and Testing}
+
+\section{Implementation}
+
+\subsection{Tools Used (Tools, Programming Languages, Database Platforms)}
+List languages, frameworks, database used.
+
+\subsection{Implementation Details of Modules (Description of Procedures/Functions)}
+Describe key modules/functions.
+
+\section{Testing}
+
+\subsection{Test Cases for Unit Testing}
+% Example table:
+% \begin{table}[H]
+%     \centering
+%     \caption{Unit Test Cases}
+%     \begin{tabular}{|l|l|l|}
+%         \hline
+%         \textbf{Test ID} & \textbf{Input} & \textbf{Expected Output} \\
+%         \hline
+%         TC01 & ... & ... \\
+%         \hline
+%     \end{tabular}
+%     \label{tab:unit-tests}
+% \end{table}
+Insert unit test case table here.
+
+\subsection{Test Cases for System Testing}
+Insert system test case table here.
+
+\chapter{Conclusion and Future Recommendations}
+
+\section{Lesson Learnt}
+Write lessons learnt here.
+
+\section{Conclusion}
+Summarize outcomes here.
+
+\section{Recommendations}
+Suggest future improvements here.
+
+% =====================================================================
+% APPENDICES
+% =====================================================================
+\begin{appendices}
+\chapter{Screen Shots}
+Insert screenshots here.
+
+\chapter{Source Codes}
+Insert key source code listings here.
+
+\chapter{Supervisor Visit Log Sheets}
+Insert visit logs here.
+\end{appendices}
+
+% =====================================================================
+% REFERENCES -- IEEE style, auto-generated from references.bib
+% =====================================================================
+\clearpage
+\renewcommand{\bibname}{References}  % report class calls this section
+                                      % "Bibliography" by default -- rename it
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\addcontentsline{toc}{chapter}{References}
+
+\end{document}
